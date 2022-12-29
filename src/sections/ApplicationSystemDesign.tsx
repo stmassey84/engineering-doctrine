@@ -97,7 +97,7 @@ const ApplicationSystemDesign: React.FC = () => {
       <ul>
         <li>
           Accept that scaling doesn't eliminate all bottlenecks, and there will
-          always be areas of contraction that cause latency
+          always be areas of contention that cause latency
         </li>
         <li>
           Find where traffic is most likely to get hung up, then apply methods
@@ -105,7 +105,7 @@ const ApplicationSystemDesign: React.FC = () => {
         </li>
         <li>
           Deploy caching solutions when throughput finds a bottleneck in its
-          data needs
+          data pathways
         </li>
       </ul>
       <h4>Secure</h4>
