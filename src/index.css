@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (max-width: 640px) {
+  .app-side-nav {
+    left: -225px !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .app-side-nav {
+    left: auto !important;
+  }
+}
+
+.app-side-nav.on-screen {
+  left: auto !important;
+}
+
+.app-side-nav.off-screen {
+  left: -225px !important;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
