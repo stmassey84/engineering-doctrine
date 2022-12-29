@@ -39,8 +39,7 @@ const ApplicationSystemDesign: React.FC = () => {
           a huge bill
         </li>
         <li>
-          Service pricing based on anticipated volume, as well as volume growth
-          over time
+          It is best to estimate pricing based on anticipated volume in the near and long term
         </li>
         <li>
           It's not that it is best to go with the cheapest services, but rather
@@ -76,10 +75,10 @@ const ApplicationSystemDesign: React.FC = () => {
           Leverage load balancing to distribute the requests in some fair
           pattern
         </li>
-        <li>Consider cold starts vs warm</li>
+        <li>Consider cold starts vs warm instances and the performance associated with both</li>
         <li>
-          Distribute across the geographical network via the cloud provider
-          whenever possible, but consider the latency ramifications
+          Distribute across the network, geographically, via the cloud provider
+          whenever possible
         </li>
       </ul>
       <h4>Scalable</h4>

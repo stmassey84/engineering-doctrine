@@ -55,8 +55,8 @@ const Leadership: React.FC = () => {
       <h4>Adaptation</h4>
       <ul>
         <li>
-          The way things operated of a previous place of work may not be
-          completely compatible with a new one
+          The way previous places of work operated may not be completely
+          compatible with a new one.
         </li>
         <li>
           A healthy dose of humility, coupled with ambition, can help one learn

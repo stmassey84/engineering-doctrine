@@ -63,7 +63,7 @@ const AboutMe: React.FC = () => {
           respect for them. They are the lifeblood.
         </li>
         <li>
-          Work-life balance is important to me, but that doesn't meet I won't
+          Work-life balance is important to me, but that doesn't meen I won't
           show up to make sure we reach the finish line on a product launch
         </li>
         <li>

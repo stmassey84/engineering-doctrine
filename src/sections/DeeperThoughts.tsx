@@ -11,11 +11,11 @@ export const deeperThoughtsMeta: SectionMeta = {
 };
 
 const DeeperThoughts: React.FC = () => {
-  const {toggleSectionInView} = useApp();
-  const {ref, inView} = useInView({threshold: 0.2});
+  const { toggleSectionInView } = useApp();
+  const { ref, inView } = useInView({ threshold: 0.2 });
 
   React.useEffect(() => {
-      toggleSectionInView(deeperThoughtsMeta.name, inView);
+    toggleSectionInView(deeperThoughtsMeta.name, inView);
   }, [toggleSectionInView, inView]);
 
   return (
@@ -120,7 +120,10 @@ const DeeperThoughts: React.FC = () => {
       </ul>
       <h4>CI/CD</h4>
       <ul>
-        <li>It is best to rely on a standardized toolkit (i.e. Jest/Mocha with a trigger mechanism such as GH)</li>
+        <li>
+          It is best to rely on a standardized toolkit (i.e. Jest/Mocha with a
+          trigger mechanism such as GH)
+        </li>
         <li>
           But there may be projects that contain only some, or perhaps zero, of
           the tools implementing CI/CD. A common example of this will be legacy
@@ -140,8 +143,6 @@ const DeeperThoughts: React.FC = () => {
         <li>
           Similar to not planning for the .002% edge cases, there are major
           factors that can help determine whether it's the right pick:
-        </li>
-        <li>
           <ul>
             <li>
               When designing a high volume application which has a need to
