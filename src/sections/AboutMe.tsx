@@ -28,11 +28,8 @@ const AboutMe: React.FC = () => {
       <ul>
         <li>
           I love technology in general, but I don't spend all my free time on
-          it. That is a choice.
-        </li>
-        <li>
-          But some of my free time is used to explore more languages & tech I am
-          unfamiliar with
+          it. When I do spend time on it, it is often to look into new
+          languages, frameworks, and libraries.
         </li>
         <li>
           Some of that same free time is used for games. I've been a gamer since
@@ -41,7 +38,7 @@ const AboutMe: React.FC = () => {
         <li>
           I'm big into documentation, which helps my natural inclination of
           being process oriented. Seeing well covered articles in Confluence &
-          Google Drive makes me happy.
+          Google Drive brings me satisfaction.
         </li>
         <li>
           Preparation is a huge deal to me. I like to take time for discovery,
@@ -53,10 +50,10 @@ const AboutMe: React.FC = () => {
           doesn't mean I prefer to work under pressure!
         </li>
         <li>
-          The opinions of others are of paramount import to me, especially those
+          The opinions of others are paramount to me, especially those
           I work with on a regular basis. I want your ideas, your criticisms,
           your feedback. Tell me you hate the weather and I'll ask why, because
-          maybe I hate the same type of weather.
+          maybe I love that same type of weather.
         </li>
         <li>
           I am big on customer centricity - as a junior engineer, I had to
@@ -66,10 +63,8 @@ const AboutMe: React.FC = () => {
           respect for them. They are the lifeblood.
         </li>
         <li>
-          I have no problem working later, on the weekends, or afterhours, so
-          long as it is not habitual. Sometimes duty calls and we must meet that
-          call to effect positive change in the business. But not at the expense
-          of your health.
+          Work-life balance is important to me, but that doesn't meet I won't
+          show up to make sure we reach the finish line on a product launch
         </li>
         <li>
           Many businesses have a values-list and there's usually a story behind

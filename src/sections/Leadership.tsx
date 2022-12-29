@@ -11,16 +11,27 @@ export const leadershipMeta: SectionMeta = {
 };
 
 const Leadership: React.FC = () => {
-  const {toggleSectionInView} = useApp();
-  const {ref, inView} = useInView();
+  const { toggleSectionInView } = useApp();
+  const { ref, inView } = useInView();
 
   React.useEffect(() => {
-      toggleSectionInView(leadershipMeta.name, inView);
+    toggleSectionInView(leadershipMeta.name, inView);
   }, [toggleSectionInView, inView]);
 
   return (
     <div id={leadershipMeta.name} ref={ref}>
       <Title title={leadershipMeta.title} />
+      <p>
+        This is a very important topic to me, as my career continues in this
+        direction & I continue to grow as a manager. The point where engineering
+        & leadership intersect can be a challenging one to define and embody, as
+        many engineering leaders were once individual contributors themselves.
+        The tendency to continue coding at the same rate is a tempting one, as
+        it is a natural inclination. This typically comes at a cost though: The
+        sacrifice of critical operational duties as a manager. Learning to stay
+        sharp on code while also performing such important duties is one of the
+        core aspects of becoming a great engineering leader.
+      </p>
       <p>
         When I think of leadership, I think of confident people; unburdened in
         their ability to voice concerns, provide critical feedback, make
@@ -74,9 +85,7 @@ const Leadership: React.FC = () => {
         <li>
           Having compassion to understand and possibly empathize with your team
         </li>
-        <li>
-          Knowing the work styles' of others and respecting them
-        </li>
+        <li>Knowing the work styles' of others and respecting them</li>
         <li>Gaining mutual trust with your most dependable contributors</li>
       </ul>
       <h4>Mentorship</h4>

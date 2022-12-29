@@ -28,7 +28,7 @@ const ArticleHome: React.FC = () => {
           display some of the projects I have worked on. If you have any
           questions please do not hesitate to contact me using the social links
           found on the left side of the page.<br/><br/>
-          The opinions expressed within are my own.
+          This site & the documents within will be added to over time. The opinions expressed within are my own.
         </p>
         {sections.map((Section, index) => (
           <Section key={index} />

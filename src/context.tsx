@@ -4,12 +4,6 @@ import { sectionsMetaData } from './sections';
 
 export type SectionsInView = {name: string, inView: boolean}[];
 
-export type tAppLink = {
-  href: string;
-  title: string;
-  newPage?: boolean;
-}
-
 export type tAppContext = {
   sectionsInView: SectionsInView;
   toggleSectionInView: (name: string, inView: boolean) => void;
@@ -18,7 +12,6 @@ export type tAppContext = {
 export interface iAppProviderProps {
   children?: JSX.Element | JSX.Element[] | string | string[];
 }
-
 
 const useLoadApp = (): tAppContext  => {  
   const [sectionsInView, setSectionsInView] = useState<SectionsInView>(Object.values(sectionsMetaData).map((section: SectionMeta) => ({name: section.name, inView: false})));
