@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { SectionMeta } from './sections/types';
 import { sectionsMetaData } from './sections';
 
@@ -31,6 +31,7 @@ const useLoadApp = (): tAppContext  => {
       return section;
     });
     setSectionsInView(newMap);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {sectionsInView, toggleSectionInView};

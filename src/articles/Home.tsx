@@ -23,9 +23,9 @@ const ArticleHome: React.FC = () => {
     <Container>
       <Article {...articleMeta}>
         <p className={"lead"}>
-          Welcome and thanks for visiting this page. The intention of this
-          document is to illustrate my thoughts on software engineering as well
-          as display some of the projects I have worked on. If you have any
+          Welcome to and thanks for visiting this page. The intention of this
+          document is to illustrate my thoughts on software engineering and to
+          display some of the projects I have worked on. If you have any
           questions please do not hesitate to contact me using the social links
           found on the left side of the page.
         </p>

@@ -56,6 +56,26 @@ export const caseStudiesNavigationDefault: TNavigation[] = [
     ...studiesMetaData.payAtCloseMeta,
     href: `#${studiesMetaData.payAtCloseMeta.name}`,
   },
+  {
+    ...studiesMetaData.cloudInspectMeta,
+    href: `#${studiesMetaData.cloudInspectMeta.name}`,
+  },
+  {
+    ...studiesMetaData.secureParamFetchMeta,
+    href: `#${studiesMetaData.secureParamFetchMeta.name}`,
+  },
+  {
+    ...studiesMetaData.fileFetchServiceMeta,
+    href: `#${studiesMetaData.fileFetchServiceMeta.name}`,
+  },
+  {
+    ...studiesMetaData.batchPhotoDownloadMeta,
+    href: `#${studiesMetaData.batchPhotoDownloadMeta.name}`,
+  },
+  {
+    ...studiesMetaData.customDeploymentMeta,
+    href: `#${studiesMetaData.customDeploymentMeta.name}`,
+  },
 ];
 
 const SocialIconExt = (props: SocialIconProps): JSX.Element => {
@@ -66,7 +86,7 @@ const SocialIconExt = (props: SocialIconProps): JSX.Element => {
   return (
     <SocialIcon
       target={"_blank"}
-      rel={"external"}
+      rel={"noreferrer"}
       className={classes}
       {...rest}
     />
@@ -129,17 +149,6 @@ const Navigation: React.FC = () => {
           <div className={"overflow-y-auto py-4 px-3 rounded"}>
             {/* <ul class="pt-4 mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700">*/}
             <ul className={"space-y-2"}>
-              <li>
-                <Link
-                  to={`/`}
-                  className={classNames(
-                    "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700",
-                    pathNameInView === "/" && !hashInView ? "bg-gray-100" : ""
-                  )}
-                >
-                  /
-                </Link>
-              </li>
               {sectionsNavigationDefault.map((section) => (
                 <li key={section.name}>
                   <HashLink
@@ -147,7 +156,7 @@ const Navigation: React.FC = () => {
                     className={classNames(
                       "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700",
                       (pathNameInView === section.path &&
-                        hashInView !== '' &&
+                        hashInView !== "" &&
                         hashInView === section.href) ||
                         sectionInView === section.name
                         ? "bg-gray-100"

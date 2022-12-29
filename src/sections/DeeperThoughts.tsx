@@ -12,7 +12,7 @@ export const deeperThoughtsMeta: SectionMeta = {
 
 const DeeperThoughts: React.FC = () => {
   const {toggleSectionInView} = useApp();
-  const {ref, inView} = useInView();
+  const {ref, inView} = useInView({threshold: 0.2});
 
   React.useEffect(() => {
       toggleSectionInView(deeperThoughtsMeta.name, inView);

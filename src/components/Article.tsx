@@ -26,15 +26,15 @@ const Article: React.FC<Props> = ({ title, author, date, children }) => {
               src={
                 "images/1663371833626.jpeg"
               }
-              alt={"Steve Massey"}
+              alt={author}
             />
             <div>
               <a
-                href={"#"}
+                href={"/"}
                 rel={"author"}
                 className={"text-xl font-bold text-gray-900 dark:text-white"}
               >
-                Steve Massey
+                {author}
               </a>
               <p
                 className={

@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import { useApp } from "../context";
 import Title from "./Title";
 import { SectionMeta } from "./types";
+import { studiesMetaData } from "../studies";
 
 export const caseStudiesMeta: SectionMeta = {
   title: "Case Studies",
@@ -21,6 +23,13 @@ const CaseStudies: React.FC = () => {
   return (
     <div id={caseStudiesMeta.name} ref={ref}>
       <Title title={caseStudiesMeta.title} />
+      <ol>
+      {Object.values(studiesMetaData).map(study => (
+        <li key={study.name}>
+          <Link to={study.path}>{study.title}</Link>
+        </li>
+      ))}
+      </ol>
     </div>
   );
 };
