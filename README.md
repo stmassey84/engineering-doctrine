@@ -13,4 +13,4 @@ npm run deploy
 ## TODO:
 1. Add Jest and test cases, wire to GH Actions
 2. Optimize build for more tree shaking & smaller dist file
-3. Adjust the side navbar to have overflow properties for height constrained devices
+~~3. Adjust the side navbar to have overflow properties for height constrained devices~~

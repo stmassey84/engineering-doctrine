@@ -146,13 +146,14 @@ const Navigation: React.FC = () => {
         }
       >
         <div>
-          <div className={"overflow-y-auto py-4 px-3 rounded"}>
+          <div className={"py-4 px-3 rounded"}>
             {/* <ul class="pt-4 mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700">*/}
-            <ul className={"space-y-2"}>
+            <ul className={"overflow-y-auto max-h-[80vh] space-y-2"}>
               {sectionsNavigationDefault.map((section) => (
                 <li key={section.name}>
                   <HashLink
                     to={`${section.path}#${section.name}`}
+                    onClick={() => setMobileSideNavScreenOn(null)}
                     className={classNames(
                       "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700",
                       (pathNameInView === section.path &&

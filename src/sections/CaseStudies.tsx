@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import { useApp } from "../context";
 import Title from "./Title";
+import Tag, { TagColor } from "../components/Tag";
 import { SectionMeta } from "./types";
 import { studiesMetaData } from "../studies";
 
@@ -35,24 +36,40 @@ const CaseStudies: React.FC = () => {
       <p className={"italic"}>Note: Not an all-inclusive list</p>
       <ul>
         <li>
-          <h5 className={"font-bold"}>ERP Architectural Overhaul</h5>
-          - Designed & directed, and assisted in the implementation of a nearly
+          <div>
+            <h5 className={"inline-block font-bold"}>
+              ERP Architectural Overhaul
+            </h5>
+            <div className={"md:inline-block"}>
+              <Tag color={TagColor.WHITE} text={"Systems"} />
+              <Tag color={TagColor.GREEN} text={"DevOps"} />
+              <Tag color={TagColor.BLUE} text={"Coding"} />
+            </div>
+          </div>
+          - Designed, directed, and assisted in the implementation of a nearly
           complete swap of production infrastructure
           <br />
           - Planning & development lasted about 3 months
           <br />
           - Actual implementation was during a single weekend
           <br />
-          - No unexpected outages. Scheduled outage of 1 hour.
+          - Scheduled outage of 1 hour. No unexpected outages.
           <br />
-          - Allowed for deployments to take 99% less time (days/hours to
-          minutes/seconds)
-          <br />
-          - Allowed for builds to take 50% less time
+          - New configuration allows for builds & deployments to take 99% less
+          time (days/hours to minutes/seconds)
           <br />- Provided new Python APIs & scripts for remote commands
         </li>
         <li>
-          <h5 className={"font-bold"}>Major Production Database Upgrade</h5>
+          <div>
+            <h5 className={"inline-block font-bold"}>
+              Major Production Database Upgrade
+            </h5>
+            <div className={"md:inline-block"}>
+              <Tag color={TagColor.WHITE} text={"RDBMS"} />
+              <Tag color={TagColor.GREEN} text={"DevOps"} />
+              <Tag color={TagColor.BLUE} text={"Coding"} />
+            </div>
+          </div>
           - Planned & facilitated a large increase in MySQL version
           <br />
           - 12 RDS clusters needed upgrade
@@ -67,7 +84,38 @@ const CaseStudies: React.FC = () => {
           <br />- Utilized instance failover method for less downtime
         </li>
         <li>
-          <h5 className={"font-bold"}>Credit Card Processing</h5>
+          <div>
+            <h5 className={"inline-block font-bold"}>Data Warehouse</h5>
+            <div className={"md:inline-block"}>
+              <Tag color={TagColor.WHITE} text={"RDBMS"} />
+              <Tag color={TagColor.GREEN} text={"DevOps"} />
+              <Tag color={TagColor.ORANGE} text={"API"} />
+              <Tag color={TagColor.BLUE} text={"Coding"} />
+            </div>
+          </div>
+          - Designed & implemented multi-tenant SQL schema
+          <br />
+          - Has ORM layer generated from XML
+          <br />
+          - Stores shallow copy of single-tenant databases
+          <br />
+          - Normalized to reduce duplicative FK associations
+          <br />
+          - Data modified on event driven & timer basis
+          <br />
+          - Combination of Bash, Python, and PHP scripts for data operations
+          <br />- Heavily relied on by company data analytics & accounting teams
+          to create ledgers, trends, and audits
+        </li>
+        <li>
+          <div>
+            <h5 className={"inline-block font-bold"}>Credit Card Processing</h5>
+            <div className={"md:inline-block"}>
+              <Tag color={TagColor.WHITE} text={"Feature"} />
+              <Tag color={TagColor.ORANGE} text={"API"} />
+              <Tag color={TagColor.BLUE} text={"Coding"} />
+            </div>
+          </div>
           - Created common interface for interacting with payment gateway APIs
           <br />
           - At its zenith, the ERP application integrated with 11 payment
@@ -79,7 +127,13 @@ const CaseStudies: React.FC = () => {
           <br />- This code serves about 5,700 payments per day
         </li>
         <li>
-          <h5 className={"font-bold"}>ACH Payment Processing</h5>
+          <div>
+            <h5 className={"inline-block font-bold"}>ACH Payment Processing</h5>
+            <div className={"md:inline-block"}>
+              <Tag color={TagColor.WHITE} text={"Feature"} />
+              <Tag color={TagColor.BLUE} text={"Coding"} />
+            </div>
+          </div>
           - In concert with my senior engineers, created an event driven feature
           for allowing clients to make ACH payments
           <br />
@@ -87,7 +141,14 @@ const CaseStudies: React.FC = () => {
           <br />- Payments batched daily, uploaded via SFTP
         </li>
         <li>
-          <h5 className={"font-bold"}>HTML to PDF Service</h5>
+          <div>
+            <h5 className={"inline-block font-bold"}>HTML to PDF Service</h5>
+            <div className={"md:inline-block"}>
+              <Tag color={TagColor.WHITE} text={"Service"} />
+              <Tag color={TagColor.ORANGE} text={"API"} />
+              <Tag color={TagColor.BLUE} text={"Coding"} />
+            </div>
+          </div>
           - Created a microservice to serve requests to convert HTML to PDF
           <br />
           - Went through numerous libs, including html2pdf, pdftk, ghostscript,
@@ -97,7 +158,14 @@ const CaseStudies: React.FC = () => {
           <br />- Serves about 20,000 documents per month
         </li>
         <li>
-          <h5 className={"font-bold"}>Migration to React</h5>
+          <div>
+            <h5 className={"inline-block font-bold"}>Migration to React</h5>
+            <div className={"md:inline-block"}>
+              <Tag color={TagColor.WHITE} text={"Backend"} />
+              <Tag color={TagColor.GREEN} text={"Frontend"} />
+              <Tag color={TagColor.BLUE} text={"Coding"} />
+            </div>
+          </div>
           - Created bootstrap class to load React into a legacy template
           container
           <br />
@@ -109,7 +177,14 @@ const CaseStudies: React.FC = () => {
           <br />- Eventually added TypeScript support
         </li>
         <li>
-          <h5 className={"font-bold"}>Legacy SOAP API</h5>
+          <div>
+            <h5 className={"inline-block font-bold"}>SOAP API</h5>
+            <div className={"md:inline-block"}>
+              <Tag color={TagColor.WHITE} text={"Service"} />
+              <Tag color={TagColor.ORANGE} text={"API"} />
+              <Tag color={TagColor.BLUE} text={"Coding"} />
+            </div>
+          </div>
           - Helped to create & maintain a SOAP API which allowed for an older
           application to connect & pass data to/from our databases
           <br />
