@@ -62,6 +62,13 @@ const CloudInspect: React.FC = () => {
           Retry save until a successful one is achieved. Provide user feedback
           that there has been trouble saving.
         </li>
+        <li>
+          The local JSON structure is composed into a linked tree, with the
+          report being the root element, sections and pages being branches,
+          subsections and html elements being twigs of those branches, and
+          controls being leaves. This structure has to be converted into a JSON
+          array of objects, and this is done in recursive fashion.
+        </li>
       </ul>
       <div>
         <span className={"font-bold"}>Developer team size:</span> 1 (fullstack)
