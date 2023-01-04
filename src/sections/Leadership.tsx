@@ -100,6 +100,27 @@ const Leadership: React.FC = () => {
         </li>
         <li>Taking a collaborative approach encourages growth</li>
       </ul>
+      <h4>Project Management</h4>
+      <ul>
+        <li>Orchestration of the project lifecycle, including:
+          <ul>
+            <li>Obtaining stakeholder goals</li>
+            <li>Negotiating on target deadlines</li>
+            <li>Defining the Minimum Viable Product</li>
+            <li>Scoping & sizing</li>
+            <li>Technical documentation, including text detailing the system(s) proposed and any associated diagrams</li>
+            <li>Allocation of resources (budgetary, staffing, infrastructure, repository, etc)</li>
+            <li>Creation of work orders (Jira stories)</li>
+            <li>Assignment & distribution of said work orders to selected team members</li>
+            <li>Seeding the project with infrastructure & initial framework code</li>
+            <li>Ensuring proper testing by developers & QA staff</li>
+            <li>Regular heartbeat checkins with team (1:1's, standup, introspectives, etc)</li>
+            <li>Regular heartbeat checkins with stakeholders (product manager, marketing, sr staff, etc)</li>
+            <li>Compliance with appropriate protocols (PCI, HIIPA, SOX, etc)</li>
+            <li>...and iteration until either MVP or market-ready product launch</li>
+          </ul>
+        </li>
+      </ul>      
     </div>
   );
 };
