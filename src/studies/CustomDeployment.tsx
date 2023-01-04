@@ -350,7 +350,7 @@ const CustomDeployment: React.FC = () => {
         showInlineLineNumbers={true}
         className={"mt-0"}
       >
-        {codeSampleDistribution}
+        {codeSampleDeploy}
       </SyntaxHighlighter>
 
       <div className={"font-bold"}>clean-unused-checkouts.sh</div>
