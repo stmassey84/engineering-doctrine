@@ -116,7 +116,7 @@ const Leadership: React.FC = () => {
             <li>Ensuring proper testing by developers & QA staff</li>
             <li>Regular heartbeat checkins with team (1:1's, standup, introspectives, etc)</li>
             <li>Regular heartbeat checkins with stakeholders (product manager, marketing, sr staff, etc)</li>
-            <li>Compliance with appropriate protocols (PCI, HIIPA, SOX, etc)</li>
+            <li>Compliance with appropriate protocols (PCI, HIPAA, SOX, etc)</li>
             <li>...and iteration until either MVP or market-ready product launch</li>
           </ul>
         </li>
