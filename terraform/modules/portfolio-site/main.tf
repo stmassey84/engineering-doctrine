@@ -5,7 +5,6 @@ provider "aws" {
 resource "null_resource" "build_and_deploy_site" {
   provisioner "local-exec" {
     command     = <<EOT
-      set -e
       npm install && npm run build
       aws s3 sync ./build s3://${var.bucket_name} --delete
       aws cloudfront create-invalidation --distribution-id ${aws_cloudfront_distribution.website.id} --paths "/*"
