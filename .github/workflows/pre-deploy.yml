@@ -25,10 +25,12 @@ jobs:
           aws-region: us-east-1
 
       - name: Terraform Init
+        working-directory: ./terraform
         run: terraform init
 
       - name: Terraform Plan
         id: plan
+        working-directory: ./terraform
         env:
           TF_VAR_portfolio_domain: ${{ secrets.PORTFOLIO_DOMAIN }}
           TF_VAR_portfolio_subdomain: ${{ secrets.PORTFOLIO_SUBDOMAIN }}
