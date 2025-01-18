@@ -30,7 +30,6 @@ const useLoadApp = (): tAppContext => {
         return section;
       });
       setSectionsInView(newMap);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     },
     []
   );
