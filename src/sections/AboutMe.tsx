@@ -22,7 +22,17 @@ const AboutMe: React.FC = () => {
     <div id={aboutMeMeta.name} ref={ref}>
       <p>
         Hello! You've made it to my portfolio site which might mean you are
-        interested in learning more about me, and I really appreciate that!
+        interested in learning more about me, and I really appreciate that! Let
+        me start by introducing myself - my name is <strong>Steve Massey</strong, and I'm a
+        <strong>Software Engineer with 20 years of experience</strong> building all kinds of
+        on-prem, cloud, and distributed systems.
+      </p>
+      <p>
+        I'm also a capable engineering leader, able to act as CTO/Senior
+        Manager, bringing value to busineses through orchestration, people
+        management, and technical direction.
+      </p>
+      <p>
         Please explore the content here, and if curious, you can see how the
         site was built by visiting the{" "}
         <a
