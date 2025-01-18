@@ -1,12 +1,14 @@
 name: Pre-deployment Workflow
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  workflow_run:
+    workflows: ["Lint Code"]
+    types:
+      - completed
 
 jobs:
   plan:
-    needs: [lint]
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
