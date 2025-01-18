@@ -1,10 +1,8 @@
 name: Pre-deployment Workflow
 
 on:
-  workflow_run:
-    workflows: ["Lint Code"]
-    types:
-      - completed
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   plan:
@@ -14,18 +12,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Fetch Pull Request Details
-        uses: actions/github-script@v6
-        id: pr_context
-        with:
-          script: |
-            const pullRequest = await github.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.payload.workflow_run.pull_requests[0].number
-            });
-            return pullRequest.data;
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
