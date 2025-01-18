@@ -39,7 +39,7 @@ jobs:
         run: terraform plan -no-color -out=tfplan
 
       - name: Comment Plan on PR
-        uses: marocchino/sticky-pull-request-comment@v3
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: terraform-plan
           message: |
