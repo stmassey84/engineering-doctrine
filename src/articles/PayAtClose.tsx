@@ -6,7 +6,7 @@ import PayAtClose, { payAtCloseMeta } from "../studies/PayAtClose";
 const articleMeta = {
   title: `Case Study: ${payAtCloseMeta.title}`,
   author: "Steve Massey",
-  date: "December, 2022"
+  date: "December, 2022",
 };
 
 const ArticlePayAtClose: React.FC = () => {

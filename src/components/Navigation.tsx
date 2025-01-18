@@ -20,28 +20,8 @@ type TNavigation = (SectionMeta | StudyMeta) & {
 
 export const sectionsNavigationDefault: TNavigation[] = [
   {
-    ...sectionsMetaData.introductionMeta,
-    href: `#${sectionsMetaData.introductionMeta.name}`,
-    section: true,
-  },
-  {
     ...sectionsMetaData.aboutMeMeta,
     href: `#${sectionsMetaData.aboutMeMeta.name}`,
-    section: true,
-  },
-  {
-    ...sectionsMetaData.leadershipMeta,
-    href: `#${sectionsMetaData.leadershipMeta.name}`,
-    section: true,
-  },
-  {
-    ...sectionsMetaData.applicationSystemDesignMeta,
-    href: `#${sectionsMetaData.applicationSystemDesignMeta.name}`,
-    section: true,
-  },
-  {
-    ...sectionsMetaData.deeperThoughtsMeta,
-    href: `#${sectionsMetaData.deeperThoughtsMeta.name}`,
     section: true,
   },
   {

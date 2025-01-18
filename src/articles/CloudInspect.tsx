@@ -6,7 +6,7 @@ import CloudInspect, { cloudInspectMeta } from "../studies/CloudInspect";
 const articleMeta = {
   title: `Case Study: ${cloudInspectMeta.title}`,
   author: "Steve Massey",
-  date: "December, 2022"
+  date: "December, 2022",
 };
 
 const ArticleCloudInspect: React.FC = () => {

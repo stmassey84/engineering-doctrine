@@ -23,13 +23,13 @@ module.exports = {
       },
     },
     fontSize: {
-      sm: '0.7rem',
-      base: '1rem',
-      xl: '1.2rem',
-      '2xl': '1.4rem',
-      '3xl': '1.6rem',
-      '4xl': '2.1rem',
-      '5xl': '2.6rem',
+      sm: "0.7rem",
+      base: "1rem",
+      xl: "1.2rem",
+      "2xl": "1.4rem",
+      "3xl": "1.6rem",
+      "4xl": "2.1rem",
+      "5xl": "2.6rem",
     },
     fontFamily: {
       body: [
@@ -68,5 +68,5 @@ module.exports = {
       ],
     },
   },
-  plugins: [require("flowbite/plugin"), require('flowbite-typography')],
+  plugins: [require("flowbite/plugin"), require("flowbite-typography")],
 };

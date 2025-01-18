@@ -45,6 +45,7 @@
     "flowbite-react": "^0.3.7",
     "flowbite-typography": "^1.0.3",
     "postcss": "^8.4.18",
+    "prettier": "^3.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.4.1",

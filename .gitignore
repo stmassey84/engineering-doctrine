@@ -2,3 +2,7 @@ build
 node_modules
 package-lock.json
 .env
+terraform/.terraform*
+terraform/*.tfstate*
+terraform/*.lock
+terraform/*.tfvars

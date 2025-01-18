@@ -23,9 +23,7 @@ const Article: React.FC<Props> = ({ title, author, date, children }) => {
           >
             <img
               className={"mr-4 w-16 h-16 rounded-full"}
-              src={
-                "images/1663371833626.jpeg"
-              }
+              src={"images/1663371833626.jpeg"}
               alt={author}
             />
             <div>
@@ -41,13 +39,15 @@ const Article: React.FC<Props> = ({ title, author, date, children }) => {
                   "text-base font-light text-gray-500 dark:text-gray-400"
                 }
               ></p>
-              {date ? <p
-                className={
-                  "text-base font-light text-gray-500 dark:text-gray-400"
-                }
-              >
-                {date}
-              </p> : null}
+              {date ? (
+                <p
+                  className={
+                    "text-base font-light text-gray-500 dark:text-gray-400"
+                  }
+                >
+                  {date}
+                </p>
+              ) : null}
             </div>
           </div>
         </address>
