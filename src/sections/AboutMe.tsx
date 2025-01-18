@@ -1,11 +1,10 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import { useApp } from "../context";
-import Title from "./Title";
 import { SectionMeta } from "./types";
 
 export const aboutMeMeta: SectionMeta = {
-  title: "",
+  title: "Introduction",
   name: "about-me",
   path: "/",
 };
@@ -39,6 +38,7 @@ const AboutMe: React.FC = () => {
         <a
           href="https://github.com/stmassey84/engineering-doctrine"
           target="_blank"
+          rel="noreferrer"
         >
           source code here
         </a>
