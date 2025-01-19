@@ -6,7 +6,7 @@ resource "null_resource" "build_and_deploy_site" {
   provisioner "local-exec" {
     command     = <<EOT
       npm install && npm run build
-      aws s3 sync ./build s3://${var.bucket_name} --delete
+      aws s3 sync ./dist s3://${var.bucket_name} --delete
       aws cloudfront create-invalidation --distribution-id ${aws_cloudfront_distribution.website.id} --paths "/*"
     EOT
     working_dir = "${path.module}/../../../"
