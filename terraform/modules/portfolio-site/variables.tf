@@ -3,8 +3,13 @@ variable "domain" {
   type        = string
 }
 
-variable "subdomain" {
-  description = "Subdomain for the website"
+variable "subdomain1" {
+  description = "1st subdomain for the website"
+  type        = string
+}
+
+variable "subdomain2" {
+  description = "2nd subdomain for the website"
   type        = string
 }
 
