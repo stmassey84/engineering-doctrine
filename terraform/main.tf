@@ -11,7 +11,8 @@ module "portfolio_site" {
   source = "./modules/portfolio-site"
 
   domain              = var.portfolio_domain
-  subdomain           = var.portfolio_subdomain
+  subdomain1          = var.portfolio_subdomain1
+  subdomain2          = var.portfolio_subdomain2
   bucket_name         = var.portfolio_bucket_name
   ssl_certificate_arn = var.portfolio_ssl_certificate_arn
 }

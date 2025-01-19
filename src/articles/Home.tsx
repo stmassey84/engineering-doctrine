@@ -5,9 +5,9 @@ import Article from "../components/Article";
 import sections from "../sections";
 
 const articleMeta = {
-  title: "Engineering Doctrine",
+  title: "Engineering Portfolio",
   author: "Steve Massey",
-  date: "Spring, 2024",
+  date: "Winter, 2025",
 };
 
 const ArticleHome: React.FC = () => {
