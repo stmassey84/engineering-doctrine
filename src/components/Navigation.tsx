@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import classNames from "classnames";
 import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
