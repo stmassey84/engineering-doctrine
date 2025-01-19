@@ -33,7 +33,8 @@ jobs:
         working-directory: ./terraform
         env:
           TF_VAR_portfolio_domain: ${{ secrets.PORTFOLIO_DOMAIN }}
-          TF_VAR_portfolio_subdomain: ${{ secrets.PORTFOLIO_SUBDOMAIN }}
+          TF_VAR_portfolio_subdomain1: ${{ secrets.PORTFOLIO_SUBDOMAIN1 }}
+          TF_VAR_portfolio_subdomain2: ${{ secrets.PORTFOLIO_SUBDOMAIN2 }}
           TF_VAR_portfolio_bucket_name: ${{ secrets.PORTFOLIO_BUCKET_NAME }}
           TF_VAR_portfolio_ssl_certificate_arn: ${{ secrets.PORTFOLIO_SSL_CERTIFICATE_ARN }}
         run: terraform plan -no-color -out=tfplan
