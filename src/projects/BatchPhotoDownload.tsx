@@ -1,8 +1,9 @@
 import React from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { StudyMeta } from "./types";
+import { ProjectMeta } from "./types";
 
 export const codeSample = `use GuzzleHttp\\Pool;
 use GuzzleHttp\\Client;
@@ -58,7 +59,7 @@ $app->get('/api/v1/photos/:reportid(/)', 'requireLogin', function ($reportId) us
 });
 `;
 
-export const batchPhotoDownloadMeta: StudyMeta = {
+export const batchPhotoDownloadMeta: ProjectMeta = {
   title: "Batch Photo Download",
   name: "batch-photo-download",
   path: "/batch-photo-download",
@@ -71,51 +72,51 @@ const BatchPhotoDownload: React.FC = () => {
 
   return (
     <div id={batchPhotoDownloadMeta.name}>
+      <h3>Problem to Solve</h3>
       <p>
-        The CloudInspect SaaS application allowed users to upload an unlimited
-        number of images, typically taken from their phone, tablet, or digital
-        camera. At some point after the product's release, multiple customers
-        voiced a need to download all of the photos they've added to any one
-        report.
+        Users of our proprietary report writing software reported long delays when using the "Download all photos"
+        button. This feature would bundle all photos up then send the ZIP file to the user/client. The functionality
+        behind this was scaling in a sublinear fashion, taking longer with each photo included in the request.
       </p>
-      <p>
-        The first step in preparing for this project was to figure out, on
-        average, how many images are uploaded for any one report. With that
-        figure, we can determine how to best design this feature. Knowing there
-        were an average of 80 photos per report, it was determined a simple
-        request pool & zip file solution would work well.
-      </p>
-      <div className={"font-bold"}>Business Requirements:</div>
-      <ul>
-        <li>Triggered via a download button in the application</li>
-        <li>
-          Must not take an unreasonable amount of time to complete relative to
-          the number of photos in the report
-        </li>
-      </ul>
-      <div className={"font-bold"}>Design Considerations:</div>
-      <ul>
-        <li>Guzzle has many built-in features, including a Request Pool</li>
-        <li>
-          The images are already resized & compressed, thus the average file
-          size is only 100 KB, allowing for fast download
-        </li>
-        <li>
-          Through testing, it was found that setting the concurrency to 50
-          at-any-one-time meant the average report of 80 photos was only taking
-          3 seconds to download, zip, and send to the user's browser
-        </li>
-      </ul>
-      <div>
-        <span className={"font-bold"}>Developer team size:</span> 1 (fullstack)
-      </div>
-      <div>
-        <span className={"font-bold"}>Time to production:</span> 5 days
-      </div>
 
-      <div className={"italic text-md"}>
-        Note: This is a best attempt recreation to protect IP
-      </div>
+      <p>
+        It was determined that past 10 photos, there was an overhead cost of 100ms per file, leading to a sub-optimal
+        linear scaling problem.
+      </p>
+
+      <h4>Requirements</h4>
+      <ul>
+        <li>The UX must stay unchanged.</li>
+        <li>The wait time for batch photo downloads should be reduced by at minimum a factor of 3.</li>
+        <li>There must not be significant added infrastructure cost related to changes to improve performance.</li>
+      </ul>
+
+      <h4>Solution</h4>
+      <p>
+        The chosen solution was to parallelize the photo file fetch process for the zip file combination. This was
+        achieved using a network-optimized fetch via the Guzzle connection pooling feature. The existing fetch
+        technology was retained but threaded to gain efficient multiple file-fetch performance without added
+        infrastructure cost.
+      </p>
+
+      <h4>Outcome</h4>
+      <p>
+        The optimization reduces the constant factor driving the cost of scaling. Previously, each additional photo
+        incurred a 100ms penalty, resulting in high per-photo overhead. After optimization, the penalty is amortized
+        across batches, reducing the effective cost per photo to just 10ms. While the scaling remains O(n), the
+        practical improvement is substantial: for 100 photos, the time drops from approximately 10 seconds to 1.9
+        seconds, demonstrating a tenfold efficiency gain in per-photo overhead.
+      </p>
+
+      <PhotoProvider>
+        <PhotoView src={"images/b11c836a-e870-43e9-a606-73fd2c53adbd.png"}>
+          <img
+            src={"images/b11c836a-e870-43e9-a606-73fd2c53adbd.png"}
+            alt={"Post-optimization improvement graph"}
+            className={"object-fit w-screen"}
+          />
+        </PhotoView>
+      </PhotoProvider>
 
       <div className={"font-bold"}>photoDownload.php</div>
       <SyntaxHighlighter

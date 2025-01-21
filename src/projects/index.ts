@@ -2,10 +2,7 @@ import PayAtClose, { payAtCloseMeta } from "./PayAtClose";
 import CloudInspect, { cloudInspectMeta } from "./CloudInspect";
 import SecureParamFetch, { secureParamFetchMeta } from "./SecureParamFetch";
 import FileFetchService, { fileFetchServiceMeta } from "./FileFetchService";
-import BatchPhotoDownload, {
-  batchPhotoDownloadMeta,
-} from "./BatchPhotoDownload";
-import CustomDeployment, { customDeploymentMeta } from "./CustomDeployment";
+import BatchPhotoDownload, { batchPhotoDownloadMeta } from "./BatchPhotoDownload";
 
 const studies = {
   PayAtClose,
@@ -13,7 +10,6 @@ const studies = {
   SecureParamFetch,
   FileFetchService,
   BatchPhotoDownload,
-  CustomDeployment,
 };
 
 export const studiesMetaData = {
@@ -22,7 +18,6 @@ export const studiesMetaData = {
   secureParamFetchMeta,
   fileFetchServiceMeta,
   batchPhotoDownloadMeta,
-  customDeploymentMeta,
 };
 
 export default studies;

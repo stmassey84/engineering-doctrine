@@ -1,10 +1,10 @@
 import React from "react";
 import Container from "../components/Container";
 import Article from "../components/Article";
-import CloudInspect, { cloudInspectMeta } from "../studies/CloudInspect";
+import CloudInspect, { cloudInspectMeta } from "../projects/CloudInspect";
 
 const articleMeta = {
-  title: `Case Study: ${cloudInspectMeta.title}`,
+  title: cloudInspectMeta.title,
   author: "Steve Massey",
   date: "December, 2022",
 };

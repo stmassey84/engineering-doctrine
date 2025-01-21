@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../components/Container";
 import Article from "../components/Article";
-import PayAtClose, { payAtCloseMeta } from "../studies/PayAtClose";
+import PayAtClose, { payAtCloseMeta } from "../projects/PayAtClose";
 
 const articleMeta = {
   title: `Case Study: ${payAtCloseMeta.title}`,
