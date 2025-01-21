@@ -1,12 +1,10 @@
 import React from "react";
 import Container from "../components/Container";
 import Article from "../components/Article";
-import SecureParamFetch, {
-  secureParamFetchMeta,
-} from "../studies/SecureParamFetch";
+import SecureParamFetch, { secureParamFetchMeta } from "../projects/SecureParamFetch";
 
 const articleMeta = {
-  title: `Case Study: ${secureParamFetchMeta.title}`,
+  title: secureParamFetchMeta.title,
   author: "Steve Massey",
   date: "December, 2022",
 };

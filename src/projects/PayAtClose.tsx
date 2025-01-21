@@ -3,7 +3,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { StudyMeta } from "./types";
+import { ProjectMeta } from "./types";
 
 export const codeSample = `const bodySchema = {
   type: 'object',
@@ -158,7 +158,7 @@ const triggerWorkFlow: Handler<FromSchema<typeof bodySchema>> = middyfy(
 export default triggerWorkFlow;
 `;
 
-export const payAtCloseMeta: StudyMeta = {
+export const payAtCloseMeta: ProjectMeta = {
   title: "Pay at Close",
   name: "pay-at-close",
   path: "/pay-at-close",
@@ -171,35 +171,40 @@ const PayAtClose: React.FC = () => {
 
   return (
     <div id={payAtCloseMeta.name}>
+      <h3>Problem to Solve</h3>
+      <p></p>
+
+      <p></p>
+
+      <h4>Requirements</h4>
+      <ul></ul>
+
+      <h4>Solution</h4>
+      <p></p>
+
+      <p></p>
+
+      <h4>Outcome</h4>
+      <p></p>
+
       <p>
-        A paid SaaS module which enables home inspectors to allow their clients
-        (home buyers) to defer payment until they close. A transaction within
-        this system has the potential to trigger money movement via credit card
-        payments, as well as triggering invoicing to title/closing companies.
-        Because of this sensitivity, the system has to be redundant, lossless,
-        and processed via dequeue reduction. This is achieved by designing the
-        overall flow of transactions to be event driven, with FIFO SQS queues
-        providing a high fidelity of message reception.
+        A paid SaaS module which enables home inspectors to allow their clients (home buyers) to defer payment until
+        they close. A transaction within this system has the potential to trigger money movement via credit card
+        payments, as well as triggering invoicing to title/closing companies. Because of this sensitivity, the system
+        has to be redundant, lossless, and processed via dequeue reduction. This is achieved by designing the overall
+        flow of transactions to be event driven, with FIFO SQS queues providing a high fidelity of message reception.
       </p>
       <div className={"font-bold"}>Business Requirements:</div>
       <ul>
         <li>Integrates directly into ERP</li>
+        <li>Charges an additional $N on monthly invoice for each successful transaction</li>
         <li>
-          Charges an additional $N on monthly invoice for each successful
-          transaction
+          Ability to trace a transaction from where it begins (client) to where it ends (closing or backup payment
+          method)
         </li>
-        <li>
-          Ability to trace a transaction from where it begins (client) to where
-          it ends (closing or backup payment method)
-        </li>
-        <li>
-          One transaction per order, but a transaction can be canceled and a new
-          one created for the same order
-        </li>
+        <li>One transaction per order, but a transaction can be canceled and a new one created for the same order</li>
         <li>Automatically offered to clients when they go to pay online</li>
-        <li>
-          Functionality to exclude offering it for certain types of services
-        </li>
+        <li>Functionality to exclude offering it for certain types of services</li>
         <li>Admin Portal with tracking, logs, and transaction details</li>
       </ul>
       <div className={"font-bold"}>Design Considerations:</div>
@@ -212,27 +217,19 @@ const PayAtClose: React.FC = () => {
         <li>DynamoDB storage, DAX cache</li>
       </ul>
       <div>
-        <span className={"font-bold"}>Developer team size:</span> 3 (2
-        fullstack, 1 frontend)
+        <span className={"font-bold"}>Developer team size:</span> 3 (2 fullstack, 1 frontend)
       </div>
       <div>
-        <span className={"font-bold"}>Time to market:</span> 120 days (8~
-        sprints)
+        <span className={"font-bold"}>Time to market:</span> 120 days (8~ sprints)
       </div>
       <PhotoProvider>
         <PhotoView src={"images/diagram_pac.png"}>
-          <img
-            src={"images/diagram_pac.png"}
-            alt={"Pay at Close Design Schematic"}
-            className={"object-fit w-screen"}
-          />
+          <img src={"images/diagram_pac.png"} alt={"Pay at Close Design Schematic"} className={"object-fit w-screen"} />
         </PhotoView>
       </PhotoProvider>
 
       <div className={"font-bold"}>workflows.ts</div>
-      <div className={"italic text-md"}>
-        Note: This is a best attempt recreation to protect IP
-      </div>
+      <div className={"italic text-md"}>Note: This is a best attempt recreation to protect IP</div>
       <SyntaxHighlighter
         language="typescript"
         style={docco}

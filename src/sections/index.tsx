@@ -1,22 +1,11 @@
 import AboutMe, { aboutMeMeta } from "./AboutMe";
-import CaseStudies, { caseStudiesMeta } from "./CaseStudies";
+import Projects, { projectsMeta } from "./Projects";
 
-const sections = [
-  //Introduction,
-  AboutMe,
-  //Leadership,
-  //ApplicationSystemDesign,
-  // DeeperThoughts,
-  CaseStudies,
-];
+const sections = [AboutMe, Projects];
 
 export const sectionsMetaData = {
-  // introductionMeta,
   aboutMeMeta,
-  // leadershipMeta,
-  // applicationSystemDesignMeta,
-  // deeperThoughtsMeta,
-  caseStudiesMeta,
+  projectsMeta,
 };
 
 export default sections;

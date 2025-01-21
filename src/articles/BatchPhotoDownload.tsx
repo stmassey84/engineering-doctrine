@@ -1,12 +1,10 @@
 import React from "react";
 import Container from "../components/Container";
 import Article from "../components/Article";
-import BatchPhotoDownload, {
-  batchPhotoDownloadMeta,
-} from "../studies/BatchPhotoDownload";
+import BatchPhotoDownload, { batchPhotoDownloadMeta } from "../projects/BatchPhotoDownload";
 
 const articleMeta = {
-  title: `Case Study: ${batchPhotoDownloadMeta.title}`,
+  title: batchPhotoDownloadMeta.title,
   author: "Steve Massey",
   date: "December, 2022",
 };

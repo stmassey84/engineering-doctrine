@@ -1,12 +1,10 @@
 import React from "react";
 import Container from "../components/Container";
 import Article from "../components/Article";
-import FileFetchService, {
-  fileFetchServiceMeta,
-} from "../studies/FileFetchService";
+import FileFetchService, { fileFetchServiceMeta } from "../projects/FileFetchService";
 
 const articleMeta = {
-  title: `Case Study: ${fileFetchServiceMeta.title}`,
+  title: fileFetchServiceMeta.title,
   author: "Steve Massey",
   date: "December, 2022",
 };

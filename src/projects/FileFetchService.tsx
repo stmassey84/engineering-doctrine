@@ -2,7 +2,7 @@ import React from "react";
 import "react-photo-view/dist/react-photo-view.css";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { StudyMeta } from "./types";
+import { ProjectMeta } from "./types";
 
 export const codeSampleHelpers = `const s3 = new S3();
 
@@ -193,7 +193,7 @@ export const getFileUrls: APIGatewayProxyHandler = async (
 };
 `;
 
-export const fileFetchServiceMeta: StudyMeta = {
+export const fileFetchServiceMeta: ProjectMeta = {
   title: "File Fetch Service",
   name: "file-fetch",
   path: "/file-fetch",
@@ -206,80 +206,52 @@ const FileFetchService: React.FC = () => {
 
   return (
     <div id={fileFetchServiceMeta.name}>
+      <h3>Problem to Solve</h3>
       <p>
-        On short notice, a sister BU requested that our engineering team (1)
-        export 5 years worth of file metadata (client id, file id, file prefix)
-        to csv and (2) provide them a way to fetch the individual files as
-        short-expiry URLs over the course of 30 days. They needed to throttle
-        the daily volume so they could ingest the files into a ML pipeline, then
-        tweak that process as more files produce more results, which would ramp
-        the request volume up until there were no more files to fetch.
+        My team was asked to provide 5 years worth of report data, which amounted to 18 million files totalling some 90
+        TB of data. This data was already accessible if one had credentials for client APIs, but it was determined that
+        fetching it via existing APIs in the window of time needed would impose too much added load onto production
+        systems, potentially impacting customers in a negative way.
       </p>
-      <p>
-        The quickest way for them to start this was to simply go through our
-        public, client facing API, however this would add considerable load &
-        cost by increasing daily request volume & hitting bottlenecks. Our
-        scaling was configured to handle some arbitrary margin above and below
-        the median, and we calculated that this event would push it way above,
-        possibly impacting end-user experience (unacceptable.)
-      </p>
-      <p>
-        Instead, we posited that an auxiliary service, which exposed 2 API
-        endpoints (/file & /files) and would allow full circumvention of all
-        client facing infrastructure. This service would understand how to
-        construct the file prefixes. It was also calculated to cost about $1000
-        for the entire backfill duration, much lower than the increased cost
-        from production servers.
-      </p>
-      <div className={"font-bold"}>Business Requirements:</div>
-      <ul>
-        <li>
-          It's a cost center from the get-go, and while keeping the price low is
-          ideal, it is not a blocker
-        </li>
-        <li>Needed for file ingestion start within 2 weeks</li>
-        <li>Capable of handling dozens of requests per second</li>
-        <li>
-          Should stay up after the initial backfill is done, providing a long
-          term avenue for a lower-over-time volume, which would likely stay
-          within AWS' free tier
-        </li>
-      </ul>
-      <div className={"font-bold"}>Design Considerations:</div>
-      <ul>
-        <li>Files stored in S3</li>
-        <li>Use Lambda to fetch and return signed URLs</li>
-        <li>Use API Gateway for request routing</li>
-        <li>
-          Batch file option with return array of objects containing either a
-          valid URL, or an error message if failed
-        </li>
-        <li>Dedupe built in for batch requests</li>
-        <li>Goal of &lt;= 60 ms per individual file request (GET /file)</li>
-        <li>
-          Goal of &lt;= 120 ms per batch file request (POST / files), far more
-          efficient this way
-        </li>
-        <li>
-          Webpack build files should be minimized (5 KB), meaning less 3rd party
-          libraries for quicker lamba initialization
-        </li>
-        <li>
-          Provisioned concurrency for backfill, keeping enough instances warm to
-          fulfill 50 requests per second
-        </li>
-      </ul>
-      <div>
-        <span className={"font-bold"}>Developer team size:</span> 1 (fullstack)
-      </div>
-      <div>
-        <span className={"font-bold"}>Time to market:</span> 3 days (1/4th
-        sprint)
-      </div>
 
-      <div className={"italic text-md"}>
-        Note: This is a best attempt recreation to protect IP
-      </div>
+      <p>
+        Additionally, due to the potential presence of PII in the data, we instigated a security review to ensure we are
+        allowed to provide access to the files, and if so, define the protective measures we should factor into the
+        design.
+      </p>
+
+      <h4>Requirements</h4>
+      <ul>
+        <li>Should be a new service, separate from production APIs in use by customers.</li>
+        <li>Must be low latency and highly available to enable efficient file download.</li>
+        <li>Must be within project budgetary constraints.</li>
+        <li>Must be secure, requiring oAuth2 authentication and JWT authorization.</li>
+        <li>
+          Source metadata lists may include duplicate entries and so batch fetching must dedupe efficiently prior to
+          fetching and serving files.
+        </li>
+      </ul>
+
+      <h4>Solution</h4>
+      <p>
+        An AWS Lambda backed service behind an API Gateway was created, with small and efficient handlers designed with
+        logic that knows how to reach the destination files. A VPC S3 endpoint was created to direct traffic on private
+        subnets rather than over the internet. Additionally, a batch fetch endpoint was made available at `POST /files`
+        that accepted a JSON encoded array of values, offering a more efficient way to retrieve multiple files in one
+        request.
+      </p>
+
+      <p>
+        The resulting solution would validate the existence of the requested files, then return temporary pre-signed S3
+        URLs for download.
+      </p>
+
+      <h4>Outcome</h4>
+      <p>
+        At full capacity, the service could serve 500 file requests per second, with a per-file latency factor of 10ms.
+        The complete fileset fetching took less than a week and was well within budgetary limits. Most importantly,
+        there was zero impact to customers.
+      </p>
 
       <div className={"font-bold"}>helpers.ts</div>
       <SyntaxHighlighter
