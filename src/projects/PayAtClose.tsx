@@ -172,21 +172,6 @@ const PayAtClose: React.FC = () => {
   return (
     <div id={payAtCloseMeta.name}>
       <h3>Problem to Solve</h3>
-      <p></p>
-
-      <p></p>
-
-      <h4>Requirements</h4>
-      <ul></ul>
-
-      <h4>Solution</h4>
-      <p></p>
-
-      <p></p>
-
-      <h4>Outcome</h4>
-      <p></p>
-
       <p>
         A paid SaaS module which enables home inspectors to allow their clients (home buyers) to defer payment until
         they close. A transaction within this system has the potential to trigger money movement via credit card
@@ -194,7 +179,7 @@ const PayAtClose: React.FC = () => {
         has to be redundant, lossless, and processed via dequeue reduction. This is achieved by designing the overall
         flow of transactions to be event driven, with FIFO SQS queues providing a high fidelity of message reception.
       </p>
-      <div className={"font-bold"}>Business Requirements:</div>
+      <div className={"font-bold"}>Requirements:</div>
       <ul>
         <li>Integrates directly into ERP</li>
         <li>Charges an additional $N on monthly invoice for each successful transaction</li>
@@ -216,12 +201,6 @@ const PayAtClose: React.FC = () => {
         <li>Emit messages via SNS for workflow triggers</li>
         <li>DynamoDB storage, DAX cache</li>
       </ul>
-      <div>
-        <span className={"font-bold"}>Developer team size:</span> 3 (2 fullstack, 1 frontend)
-      </div>
-      <div>
-        <span className={"font-bold"}>Time to market:</span> 120 days (8~ sprints)
-      </div>
       <PhotoProvider>
         <PhotoView src={"images/diagram_pac.png"}>
           <img src={"images/diagram_pac.png"} alt={"Pay at Close Design Schematic"} className={"object-fit w-screen"} />
