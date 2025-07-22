@@ -13,6 +13,7 @@ module "portfolio_site" {
   domain              = var.portfolio_domain
   subdomain1          = var.portfolio_subdomain1
   subdomain2          = var.portfolio_subdomain2
+  subdomain3          = var.portfolio_subdomain3
   bucket_name         = var.portfolio_bucket_name
   ssl_certificate_arn = var.portfolio_ssl_certificate_arn
 }
