@@ -1,5 +1,6 @@
 build
 dist
+*.local
 node_modules
 package-lock.json
 .env
@@ -7,3 +8,14 @@ terraform/.terraform*
 terraform/*.tfstate*
 terraform/*.lock
 terraform/*.tfvars
+
+auto-imports.d.ts
+.eslintrc-auto-import.json
+
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*

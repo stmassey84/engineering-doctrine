@@ -1,9 +1,14 @@
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./index.html", "./src/index.css", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
   },
   plugins: [],
+  safelist: [
+    {
+      pattern: /.*/,
+    },
+  ],
   safelist: [
     "text-indigo-700",
     "text-xl",

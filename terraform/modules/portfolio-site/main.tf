@@ -13,8 +13,11 @@ resource "null_resource" "build_and_deploy_site" {
   }
 
   triggers = {
-    src_hash     = join("", [for file in fileset("${path.module}/../../../src", "**/*") : filesha256("${path.module}/../../../src/${file}")])
-    package_hash = filemd5("${path.module}/../../../package.json")
+    src_hash        = join("", [for file in fileset("${path.module}/../../../src", "**/*") : filesha256("${path.module}/../../../src/${file}")])
+    package_hash    = filemd5("${path.module}/../../../package.json")
+    tailwind_config = filemd5("${path.module}/../../../tailwind.config.js")
+    postcss_config  = filemd5("${path.module}/../../../postcss.config.js")
+    index_css_hash  = filemd5("${path.module}/../../../src/index.css")
   }
 }
 
