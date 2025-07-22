@@ -13,8 +13,11 @@ resource "null_resource" "build_and_deploy_site" {
   }
 
   triggers = {
-    src_hash     = join("", [for file in fileset("${path.module}/../../../src", "**/*") : filesha256("${path.module}/../../../src/${file}")])
-    package_hash = filemd5("${path.module}/../../../package.json")
+    src_hash        = join("", [for file in fileset("${path.module}/../../../src", "**/*") : filesha256("${path.module}/../../../src/${file}")])
+    package_hash    = filemd5("${path.module}/../../../package.json")
+    tailwind_config = filemd5("${path.module}/../../../tailwind.config.js")
+    postcss_config  = filemd5("${path.module}/../../../postcss.config.js")
+    index_css_hash  = filemd5("${path.module}/../../../src/index.css")
   }
 }
 
@@ -95,7 +98,7 @@ resource "aws_cloudfront_distribution" "website" {
   is_ipv6_enabled     = false
   default_root_object = "index.html"
 
-  aliases = ["${var.subdomain1}.${var.domain}", "${var.subdomain2}.${var.domain}"]
+  aliases = ["${var.subdomain1}.${var.domain}", "${var.subdomain2}.${var.domain}", "${var.subdomain3}.${var.domain}"]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
@@ -148,6 +151,18 @@ resource "aws_route53_record" "alias_1" {
 resource "aws_route53_record" "alias_2" {
   zone_id = aws_route53_zone.main.zone_id
   name    = var.subdomain2
+  type    = "A"
+
+  alias {
+    name                   = aws_cloudfront_distribution.website.domain_name
+    zone_id                = aws_cloudfront_distribution.website.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
+resource "aws_route53_record" "alias_3" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = var.subdomain3
   type    = "A"
 
   alias {

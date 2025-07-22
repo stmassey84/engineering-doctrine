@@ -13,6 +13,11 @@ variable "portfolio_subdomain2" {
   type        = string
 }
 
+variable "portfolio_subdomain3" {
+  description = "3rd subdomain for the website"
+  type        = string
+}
+
 variable "portfolio_bucket_name" {
   description = "Bucket name for the website"
   type        = string
