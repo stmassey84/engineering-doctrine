@@ -11,9 +11,6 @@ const Home: React.FC = () => {
           <a href="mailto:steve@stevemassey.net" title="Email">
             <FaEnvelope />
           </a>
-          <a href="tel:+17067667816" title="Phone">
-            <FaPhoneAlt />
-          </a>
           <a href="https://www.linkedin.com/in/stevepmassey" title="LinkedIn" target="_blank" rel="noopener noreferrer">
             <FaLinkedin />
           </a>
